@@ -1,0 +1,162 @@
+/* Additional CSS to fix navbar issues */
+.main-navbar {
+    display: block !important;
+    visibility: visible !important;
+}
+
+.navbar-toggle {
+    color: #333 !important;
+    visibility: visible !important;
+}
+
+.navbar-toggle i {
+    color: #333 !important;
+}
+
+.main-navbar {
+    display: block !important;
+    visibility: visible !important;
+    height: 70px !important;
+    padding: 10px 0 !important;
+}
+
+.navbar-logo {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.navbar-logo-img {
+    height: 50px !important;
+    vertical-align: middle !important;
+}
+
+/* Hide the text next to logo */
+.navbar-logo span {
+    display: none !important;
+}
+
+/* Footer styles - Modern 2025 Design */
+.site-footer {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+    padding: 40px 0 30px !important;
+    text-align: center !important;
+    margin-top: 50px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    color: #fff !important;
+}
+
+.site-footer::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, #ff2e63, #08d9d6, #ff2e63) !important;
+    z-index: 1 !important;
+}
+
+.footer-content {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.footer-brand {
+    margin-bottom: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.footer-logo {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    margin-bottom: 5px !important;
+    color: #fff !important;
+    letter-spacing: 1px !important;
+}
+
+.footer-tagline {
+    font-size: 14px !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-style: italic !important;
+    margin-bottom: 20px !important;
+}
+
+.footer-divider {
+    width: 60px !important;
+    height: 3px !important;
+    background: #ff2e63 !important;
+    margin: 15px auto !important;
+    border-radius: 2px !important;
+}
+
+.footer-credits {
+    margin-bottom: 20px !important;
+    font-weight: 400 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+}
+
+.footer-credits strong {
+    color: #08d9d6 !important;
+    font-weight: 600 !important;
+}
+
+.footer-social {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 15px !important;
+}
+
+.github-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 10px 20px !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    border-radius: 30px !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    font-weight: 500 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+.github-link:hover {
+    background-color: #ff2e63 !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 20px rgba(255, 46, 99, 0.3) !important;
+    border-color: transparent !important;
+}
+
+.github-icon {
+    margin-right: 10px !important;
+    font-size: 20px !important;
+}
+
+.copyright {
+    margin-top: 25px !important;
+    font-size: 13px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 50%, #ffffff 100%) !important;
+    }
+    
+    .navbar-link {
+        color: #333 !important;
+    }
+}

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Aplicație educațională despre genetica trăsăturilor fizice - părul, ochii, forma feței și pistruii">
+    <meta name="keywords" content="genetică, trăsături fizice, educație, biologie, păr, ochi, față, pistrui">
+    <meta name="author" content="Aplicație Educațională">
+    <meta name="theme-color" content="#8B7355">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Genetica Trăsăturilor">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Genetica Trăsăturilor Fizice - Aplicație Educațională</title>
+    
+    <!-- Favicon și iconițe -->
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="logo.png">
+    
+    <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="stylesheet" href="fix-navbar.css?v=1.0">
+</head>
+<body>
+    <!-- Main Navigation Bar -->
+    <nav class="main-navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <img src="logo.png" alt="Învață Arta Logo" class="navbar-logo-img">
+            </a>
+            <button class="navbar-toggle" id="navbar-toggle">
+                <i class="fas fa-bars" style="color: #333;"></i>
+            </button>
+            <ul class="navbar-links" id="navbar-links">
+                <li><a href="index.html" class="navbar-link">Desenează Portrete</a></li>
+                <li><a href="coloring.html" class="navbar-link">Schițe de Colorat</a></li>
+                <li><a href="genetics.html" class="navbar-link active">Genetica Trăsăturilor</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header class="main-header">
+        <div class="header-content">
+            <h1 class="main-title">
+                <span class="title-icon">🧬</span>
+                Genetica Trăsăturilor Fizice
+                <span class="title-icon">🧬</span>
+            </h1>
+            <p class="subtitle">Descoperă știința din spatele aspectului tău fizic</p>
+        </div>
+    </header>
+
+    <!-- Bara de navigare laterală -->
+    <nav class="side-navigation">
+        <div class="nav-container">
+            <h3 class="nav-title">Navigare</h3>
+            <ul class="nav-list">
+                <li><a href="#introduction" class="nav-link active" data-section="introduction">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-text">Acasă</span>
+                </a></li>
+                <li><a href="#hair-section" class="nav-link" data-section="hair-section">
+                    <span class="nav-icon">💇‍♀️</span>
+                    <span class="nav-text">Părul</span>
+                </a></li>
+                <li><a href="#eyes-section" class="nav-link" data-section="eyes-section">
+                    <span class="nav-icon">👁️</span>
+                    <span class="nav-text">Ochii</span>
+                </a></li>
+                <li><a href="#face-section" class="nav-link" data-section="face-section">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-text">Fața</span>
+                </a></li>
+                <li><a href="#freckles-section" class="nav-link" data-section="freckles-section">
+                    <span class="nav-icon">✨</span>
+                    <span class="nav-text">Pistruii</span>
+                </a></li>
+                <li><a href="#simulator-section" class="nav-link" data-section="simulator-section">
+                    <span class="nav-icon">🎮</span>
+                    <span class="nav-text">Simulator</span>
+                </a></li>
+                <li><a href="#parent-simulator-section" class="nav-link" data-section="parent-simulator-section">
+                    <span class="nav-icon">👨‍👩‍👧‍👦</span>
+                    <span class="nav-text">Părinți</span>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="single-page-content">
+        <!-- Secțiunea de Introducere - Meniul Principal -->
+        <section id="introduction" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="section-title">Bun venit în lumea geneticii!</h2>
+                    <p class="hero-description">
+                        Această aplicație te va învăța despre cum genele influențează trăsăturile fizice 
+                        precum părul, ochii, forma feței și pistruii. Explorează fiecare secțiune pentru 
+                        a înțelege mecanismele genetice complexe din spatele aspectului nostru.
+                    </p>
+                    
+                    <!-- Meniul principal cu iconițe pe același rând -->
+                    <div class="main-menu">
+                        <h3 class="menu-title">Explorează Secțiunile:</h3>
+                        <div class="menu-icons-row">
+                            <a href="#hair-section" class="menu-icon-item" title="Genetica Părului">
+                                <div class="icon-wrapper">💇‍♀️</div>
+                                <span class="icon-label">Părul</span>
+                            </a>
+                            <a href="#eyes-section" class="menu-icon-item" title="Genetica Ochilor">
+                                <div class="icon-wrapper">👁️</div>
+                                <span class="icon-label">Ochii</span>
+                            </a>
+                            <a href="#face-section" class="menu-icon-item" title="Forma Feței">
+                                <div class="icon-wrapper">👤</div>
+                                <span class="icon-label">Fața</span>
+                            </a>
+                            <a href="#freckles-section" class="menu-icon-item" title="Pistruii">
+                                <div class="icon-wrapper">✨</div>
+                                <span class="icon-label">Pistruii</span>
+                            </a>
+                            <a href="#simulator-section" class="menu-icon-item" title="Simulator Genetic">
+                                <div class="icon-wrapper">🎮</div>
+                                <span class="icon-label">Simulator</span>
+                            </a>
+                            <a href="#parent-simulator-section" class="menu-icon-item" title="Simulator Părinți">
+                                <div class="icon-wrapper">👨‍👩‍👧‍👦</div>
+                                <span class="icon-label">Părinți</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secțiunea Părul -->
+        <section id="hair-section" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">🧬 Genetica Părului</h2>
+                    <p class="section-subtitle">Descoperă cum genele determină tipul și culoarea părului tău</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="text-content">
+                        <h3>Genele care influențează părul</h3>
+                        <p>Tipul părului este determinat de mai multe gene care lucrează împreună:</p>
+                        <ul>
+                            <li><strong>MC1R</strong> - influențează culoarea părului (roșcat)</li>
+                            <li><strong>EDAR</strong> - determină grosimea părului</li>
+                            <li><strong>FGFR2</strong> - afectează forma părului (drepți vs ondulați)</li>
+                            <li><strong>KRT71</strong> - influențează textura părului</li>
+                        </ul>
+                        
+                        <h3>Tipuri de păr și moștenirea genetică</h3>
+                        <div class="trait-explanation">
+                            <div class="trait-item">
+                                <h4>Părul Drept</h4>
+                                <p>Este o trăsătură recesivă. Pentru a avea păr drept, trebuie să moștenești 
+                                genele pentru păr drept de la ambii părinți.</p>
+                            </div>
+                            <div class="trait-item">
+                                <h4>Părul Ondulat</h4>
+                                <p>Este o trăsătură intermediară. Rezultă din combinația între genele pentru 
+                                păr drept și cele pentru păr creț.</p>
+                            </div>
+                            <div class="trait-item">
+                                <h4>Părul Creț</h4>
+                                <p>Este o trăsătură dominantă. O singură copie a genei este suficientă 
+                                pentru a avea păr creț.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="visual-content">
+                        <div class="hair-demonstration">
+                            <h3>Demonstrație Vizuală</h3>
+                            <div class="hair-types">
+                                <div class="hair-type straight-hair">
+                                    <div class="hair-visual straight"></div>
+                                    <span>Drept</span>
+                                </div>
+                                <div class="hair-type wavy-hair">
+                                    <div class="hair-visual wavy"></div>
+                                    <span>Ondulat</span>
+                                </div>
+                                <div class="hair-type curly-hair">
+                                    <div class="hair-visual curly"></div>
+                                    <span>Creț</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secțiunea Ochii -->
+        <section id="eyes-section" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">👁️ Genetica Ochilor</h2>
+                    <p class="section-subtitle">Cum genele determină culoarea și forma ochilor</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="text-content">
+                        <h3>Genele pentru culoarea ochilor</h3>
+                        <p>Culoarea ochilor este determinată de cantitatea și distribuția melaninei în iris:</p>
+                        <ul>
+                            <li><strong>OCA2</strong> - genele principale pentru culoarea ochilor</li>
+                            <li><strong>HERC2</strong> - reglează expresia genei OCA2</li>
+                            <li><strong>SLC24A4</strong> - influențează nuanțele de culoare</li>
+                            <li><strong>TYR</strong> - implicată în producția de melanină</li>
+                        </ul>
+                        
+                        <h3>Moștenirea culorii ochilor</h3>
+                        <div class="trait-explanation">
+                            <div class="trait-item">
+                                <h4>Ochi Albaștri</h4>
+                                <p>Este o trăsătură recesivă. Pentru ochi albaștri, trebuie să moștenești 
+                                genele recesive de la ambii părinți.</p>
+                            </div>
+                            <div class="trait-item">
+                                <h4>Ochi Verzi</h4>
+                                <p>Este o trăsătură intermediară, mai rară decât ochii albaștri sau căprui.</p>
+                            </div>
+                            <div class="trait-item">
+                                <h4>Ochi Căprui</h4>
+                                <p>Este o trăsătură dominantă. O singură copie a genei este suficientă 
+                                pentru ochi căprui.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="visual-content">
+                        <div class="eyes-demonstration">
+                            <h3>Demonstrație Vizuală</h3>
+                            <div class="eye-types">
+                                <div class="eye-type blue-eyes">
+                                    <div class="eye-visual blue"></div>
+                                    <span>Albaștri</span>
+                                </div>
+                                <div class="eye-type green-eyes">
+                                    <div class="eye-visual green"></div>
+                                    <span>Verzi</span>
+                                </div>
+                                <div class="eye-type brown-eyes">
+                                    <div class="eye-visual brown"></div>
+                                    <span>Căprui</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secțiunea Forma Feței -->
+        <section id="face-section" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">👤 Forma Feței și Trăsăturile Faciale</h2>
+                    <p class="section-subtitle">Genele care modelează structura facială</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="text-content">
+                        <h3>Genele pentru forma feței</h3>
+                        <p>Forma feței este influențată de multe gene care controlează dezvoltarea craniofacială:</p>
+                        <ul>
+                            <li><strong>PAX3</strong> - influențează forma nasului și ochilor</li>
+                            <li><strong>FOXL2</strong> - afectează forma ochilor și genele</li>
+                            <li><strong>BMP4</strong> - implicată în dezvoltarea maxilarului</li>
+                            <li><strong>FGFR1</strong> - influențează forma craniului</li>
+                        </ul>
+                        
+                        <h3>Tipuri de forme faciale</h3>
+                        <div class="trait-explanation">
+                            <div class="trait-item">
+                                <h4>Față Ovală</h4>
+                                <p>Este considerată forma "ideală" și este foarte versatilă pentru 
+                                diferite stiluri de păr și machiaj.</p>
+                            </div>
+                            <div class="trait-item">
+                                <h4>Față Rotundă</h4>
+                                <p>Caracterizată prin linii moi și unghiuri rotunjite, 
+                                cu lungimea și lățimea aproape egale.</p>
+                            </div>
+                            <div class="trait-item">
+                                <h4>Față Pătrată</h4>
+                                <p>Are un maxilar pronunțat și unghiuri clare, 
+                                dând un aspect puternic și decisiv.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="visual-content">
+                        <div class="face-demonstration">
+                            <h3>Demonstrație Vizuală</h3>
+                            <div class="face-types">
+                                <div class="face-type oval-face">
+                                    <div class="face-visual oval"></div>
+                                    <span>Ovală</span>
+                                </div>
+                                <div class="face-type round-face">
+                                    <div class="face-visual round"></div>
+                                    <span>Rotundă</span>
+                                </div>
+                                <div class="face-type square-face">
+                                    <div class="face-visual square"></div>
+                                    <span>Pătrată</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secțiunea Pistruii -->
+        <section id="freckles-section" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">✨ Pistruii și Moștenirea Genetică</h2>
+                    <p class="section-subtitle">Cum genele determină prezența și distribuția pistruilor</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="text-content">
+                        <h3>Genele pentru pistrui</h3>
+                        <p>Pistruii sunt determinați de genele care controlează producția și distribuția melaninei:</p>
+                        <ul>
+                            <li><strong>MC1R</strong> - genele principale pentru pistrui</li>
+                            <li><strong>IRF4</strong> - influențează intensitatea pistruilor</li>
+                            <li><strong>ASIP</strong> - afectează distribuția pigmentului</li>
+                            <li><strong>TYR</strong> - implicată în producția de melanină</li>
+                        </ul>
+                        
+                        <h3>Tipuri de pistrui</h3>
+                        <div class="trait-explanation">
+                            <div class="trait-item">
+                                <h4>Fără Pistrui</h4>
+                                <p>Majoritatea oamenilor nu au pistrui genetici. 
+                                Pistruii pot apărea din cauza expunerii la soare.</p>
+                            </div>
+                            <div class="trait-item">
+                                <h4>Pistrui Ușori</h4>
+                                <p>Pistrui discreți care pot fi mai vizibili în anotimpurile calde 
+                                sau după expunerea la soare.</p>
+                            </div>
+                            <div class="trait-item">
+                                <h4>Pistrui Pronunțați</h4>
+                                <p>Pistrui vizibili tot timpul, moșteniți genetic și 
+                                distribuiți pe față, brațe și umeri.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="visual-content">
+                        <div class="freckles-demonstration">
+                            <h3>Demonstrație Vizuală</h3>
+                            <div class="freckles-types">
+                                <div class="freckles-type none-freckles">
+                                    <div class="freckles-visual none"></div>
+                                    <span>Fără Pistrui</span>
+                                </div>
+                                <div class="freckles-type light-freckles">
+                                    <div class="freckles-visual light"></div>
+                                    <span>Ușori</span>
+                                </div>
+                                <div class="freckles-type heavy-freckles">
+                                    <div class="freckles-visual heavy"></div>
+                                    <span>Pronunțați</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secțiunea Simulator Genetic -->
+        <section id="simulator-section" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">🎮 Simulator Genetic Interactiv</h2>
+                    <p class="section-subtitle">Experimentează cu diferite combinații genetice și vezi rezultatul</p>
+                </div>
+                
+                <div class="simulator-container">
+                    <div class="controls-panel">
+                        <h3>Controale Genetice</h3>
+                        <div class="control-group">
+                            <label for="sim-hair">Tipul Părului:</label>
+                            <select id="sim-hair" class="control-select">
+                                <option value="straight">Drept</option>
+                                <option value="wavy">Ondulat</option>
+                                <option value="curly">Creț</option>
+                            </select>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="sim-eyes">Culoarea Ochilor:</label>
+                            <select id="sim-eyes" class="control-select">
+                                <option value="blue">Albaștri</option>
+                                <option value="green">Verzi</option>
+                                <option value="brown">Căprui</option>
+                            </select>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="sim-face">Forma Feței:</label>
+                            <select id="sim-face" class="control-select">
+                                <option value="oval">Ovală</option>
+                                <option value="round">Rotundă</option>
+                                <option value="square">Pătrată</option>
+                            </select>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="sim-freckles">Pistruii:</label>
+                            <select id="sim-freckles" class="control-select">
+                                <option value="none">Fără Pistrui</option>
+                                <option value="light">Ușori</option>
+                                <option value="heavy">Pronunțați</option>
+                            </select>
+                        </div>
+                        
+                        <button id="generate-btn" class="generate-button">
+                            <span class="btn-icon">🎲</span>
+                            Generează Personaj
+                        </button>
+                    </div>
+                    
+                    <div class="character-display">
+                        <h3>Personajul Tău Genetic</h3>
+                        <div id="character" class="character">
+                            <div class="character-face">
+                                <div class="character-eyes"></div>
+                                <div class="character-nose"></div>
+                                <div class="character-mouth"></div>
+                                <div class="character-freckles"></div>
+                            </div>
+                            <div class="character-hair"></div>
+                        </div>
+                        
+                        <div id="genetic-details" class="genetic-details">
+                            <h4>Informații Genetice</h4>
+                            <p>Selectează trăsăturile și apasă "Generează Personaj" pentru a vedea 
+                            informațiile genetice detaliate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secțiunea Simulator Genetic Părinți -->
+        <section id="parent-simulator-section" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">👨‍👩‍👧‍👦 Simulator Genetic Părinți</h2>
+                    <p class="section-subtitle">Introduce trăsăturile părinților și vezi cum ar putea arăta copilul</p>
+                </div>
+                
+                <div class="parent-simulator-container">
+                    <div class="parents-panel">
+                        <div class="parent-controls">
+                            <h3>Părintele 1</h3>
+                            <div class="control-group">
+                                <label for="parent1-hair">Tipul Părului:</label>
+                                <select id="parent1-hair" class="control-select">
+                                    <option value="straight">Drept</option>
+                                    <option value="wavy">Ondulat</option>
+                                    <option value="curly">Creț</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="parent1-eyes">Culoarea Ochilor:</label>
+                                <select id="parent1-eyes" class="control-select">
+                                    <option value="blue">Albaștri</option>
+                                    <option value="green">Verzi</option>
+                                    <option value="brown">Căprui</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="parent1-face">Forma Feței:</label>
+                                <select id="parent1-face" class="control-select">
+                                    <option value="oval">Ovală</option>
+                                    <option value="round">Rotundă</option>
+                                    <option value="square">Pătrată</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="parent1-freckles">Pistruii:</label>
+                                <select id="parent1-freckles" class="control-select">
+                                    <option value="none">Fără Pistrui</option>
+                                    <option value="light">Ușori</option>
+                                    <option value="heavy">Pronunțați</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="parent-controls">
+                            <h3>Părintele 2</h3>
+                            <div class="control-group">
+                                <label for="parent2-hair">Tipul Părului:</label>
+                                <select id="parent2-hair" class="control-select">
+                                    <option value="straight">Drept</option>
+                                    <option value="wavy">Ondulat</option>
+                                    <option value="curly">Creț</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="parent2-eyes">Culoarea Ochilor:</label>
+                                <select id="parent2-eyes" class="control-select">
+                                    <option value="blue">Albaștri</option>
+                                    <option value="green">Verzi</option>
+                                    <option value="brown">Căprui</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="parent2-face">Forma Feței:</label>
+                                <select id="parent2-face" class="control-select">
+                                    <option value="oval">Ovală</option>
+                                    <option value="round">Rotundă</option>
+                                    <option value="square">Pătrată</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="parent2-freckles">Pistruii:</label>
+                                <select id="parent2-freckles" class="control-select">
+                                    <option value="none">Fără Pistrui</option>
+                                    <option value="light">Ușori</option>
+                                    <option value="heavy">Pronunțați</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="prediction-button-container">
+                        <button id="predict-child-btn" class="generate-button">
+                            <span class="btn-icon">🔮</span>
+                            Prezice Copilul
+                        </button>
+                    </div>
+                    
+                    <div class="child-prediction">
+                        <h3>Copilul Prezis</h3>
+                        <div class="prediction-display">
+                            <div id="parent1-character" class="parent-character">
+                                <h4>Părintele 1</h4>
+                                <div class="character">
+                                    <div class="character-face">
+                                        <div class="character-eyes"></div>
+                                        <div class="character-nose"></div>
+                                        <div class="character-mouth"></div>
+                                        <div class="character-freckles"></div>
+                                    </div>
+                                    <div class="character-hair"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="prediction-arrow">
+                                <span>➕</span>
+                            </div>
+                            
+                            <div id="parent2-character" class="parent-character">
+                                <h4>Părintele 2</h4>
+                                <div class="character">
+                                    <div class="character-face">
+                                        <div class="character-eyes"></div>
+                                        <div class="character-nose"></div>
+                                        <div class="character-mouth"></div>
+                                        <div class="character-freckles"></div>
+                                    </div>
+                                    <div class="character-hair"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="prediction-arrow">
+                                <span>🟰</span>
+                            </div>
+                            
+                            <div id="child-character" class="child-character">
+                                <h4>Copilul</h4>
+                                <div class="character">
+                                    <div class="character-face">
+                                        <div class="character-eyes"></div>
+                                        <div class="character-nose"></div>
+                                        <div class="character-mouth"></div>
+                                        <div class="character-freckles"></div>
+                                    </div>
+                                    <div class="character-hair"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="inheritance-details" class="inheritance-details">
+                            <h4>Detalii Moștenire</h4>
+                            <p>Selectează trăsăturile părinților și apasă "Prezice Copilul" pentru a vedea 
+                            cum se moștenesc trăsăturile genetice.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">ArtPortret</div>
+                <div class="footer-tagline">Explorează arta portretului</div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-credits">
+                Made by <strong>Siret Luca-Alexandru</strong> and <strong>Zevri Matei-Tudor</strong>
+            </div>
+            
+            <div class="footer-social">
+                <a href="https://github.com/Atomify66/Artportret" class="github-link" target="_blank">
+                    <i class="fab fa-github github-icon"></i>
+                    GitHub Repository
+                </a>
+            </div>
+            
+            <div class="copyright">
+                © 2025 ArtPortret • Toate drepturile rezervate
+            </div>
+        </div>
+    </footer>
+
+    <script src="navbar.js?v=1.1"></script>
+    <script src="script_g.js"></script>
+</body>
+</html> 

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Convertește fotografiile tale în schițe de colorat personalizate">
+    <meta name="keywords" content="colorat, schițe, fotografie, desen, portrete, artă">
+    <meta name="author" content="Învață Arta">
+    <meta name="theme-color" content="#8B7355">
+    <title>Convertește Fotografii în Schițe de Colorat - Învață Arta</title>
+    
+    <link rel="icon" href="logo.png" type="image/png">
+    
+    <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="stylesheet" href="fix-navbar.css?v=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .upload-section {
+            background: var(--gradient-card);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .upload-area {
+            border: 3px dashed var(--accent-color);
+            border-radius: var(--border-radius);
+            padding: 3rem 2rem;
+            transition: var(--transition);
+            cursor: pointer;
+            background: var(--white);
+        }
+        
+        .upload-area:hover {
+            border-color: var(--primary-color);
+            background: var(--light-bg);
+        }
+        
+        .upload-area.dragover {
+            border-color: var(--success-color);
+            background: rgba(160, 82, 45, 0.1);
+        }
+        
+        .upload-icon {
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .upload-text {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .upload-hint {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .preview-section {
+            display: none;
+            margin: 2rem 0;
+        }
+        
+        .image-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .image-container {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .image-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .processing-section {
+            display: none;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .processing-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--light-bg);
+            border-top: 4px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .processing-text {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .processing-hint {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .style-section {
+            margin: 2rem 0;
+        }
+        
+        .style-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .style-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .style-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+        
+        .style-card.selected {
+            border-color: var(--accent-color);
+            background: var(--light-bg);
+        }
+        
+        .style-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .style-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .style-preview {
+            width: 100%;
+            height: 100px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-secondary {
+            background: var(--gradient-secondary);
+            color: var(--text-primary);
+        }
+        
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border: 1px solid #fcc;
+            display: none;
+        }
+        
+        .success-message {
+            background: #efe;
+            color: #363;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border: 1px solid #cfc;
+            display: none;
+        }
+        
+        .tips-section {
+            background: var(--gradient-card);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tip-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .tip-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tip-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tip-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .image-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .style-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Navigation Bar -->
+    <nav class="main-navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <img src="logo.png" alt="Învață Arta Logo" class="navbar-logo-img">
+            </a>
+            <button class="navbar-toggle" id="navbar-toggle">
+                <i class="fas fa-bars" style="color: #333;"></i>
+            </button>
+            <ul class="navbar-links" id="navbar-links">
+                <li><a href="index.html" class="navbar-link">Desenează Portrete</a></li>
+                <li><a href="coloring.html" class="navbar-link active">Schițe de Colorat</a></li>
+                <li><a href="genetics.html" class="navbar-link">Genetica Trăsăturilor</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="main-title">
+                    <i class="fas fa-palette"></i>
+                    Convertește Fotografii în Schițe de Colorat
+                </h1>
+                <p class="subtitle">Transformă orice fotografie într-o schiță perfectă pentru colorat</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <h2>Încarcă Fotografia Ta</h2>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="upload-text">
+                        Glisează fotografia aici sau fă clic pentru a selecta
+                    </div>
+                    <div class="upload-hint">
+                        Acceptă: JPG, PNG, WEBP (max 10MB)
+                    </div>
+                    <input type="file" id="fileInput" class="file-input" accept="image/*">
+                </div>
+            </section>
+
+            <!-- Style Options -->
+            <section class="style-section" id="styleSection">
+                <div class="section-header">
+                    <h2>Alege Stilul Schiței</h2>
+                    <p>Selectează tipul de schiță pe care îl preferi</p>
+                </div>
+
+                <div class="style-options" id="styleOptions">
+                    <div class="style-card selected" data-style="outline">
+                        <div class="style-name">Contur Facial Detaliat</div>
+                        <div class="style-description">Linii clare cu accent pe trăsăturile feței</div>
+                        <div class="style-preview">📝</div>
+                    </div>
+
+                    <div class="style-card" data-style="detailed">
+                        <div class="style-name">Contur Îngroșat</div>
+                        <div class="style-description">Linii mai groase și accentuate pentru colorat</div>
+                        <div class="style-preview">✏️</div>
+                    </div>
+
+                    <div class="style-card" data-style="artistic">
+                        <div class="style-name">Contur Cap</div>
+                        <div class="style-description">Contur simplu al formei capului</div>
+                        <div class="style-preview">🎨</div>
+                    </div>
+
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn" id="convertBtn" disabled>
+                        <i class="fas fa-magic"></i>
+                        Convertește în Schiță
+                    </button>
+                </div>
+            </section>
+
+            <!-- Processing Section -->
+            <section class="processing-section" id="processingSection">
+                <div class="processing-spinner"></div>
+                <div class="processing-text">Se procesează imaginea...</div>
+                <div class="processing-hint">Acest proces poate dura câteva secunde</div>
+            </section>
+
+            <!-- Messages -->
+            <div class="error-message" id="errorMessage"></div>
+            <div class="success-message" id="successMessage"></div>
+
+            <!-- Preview Section -->
+            <section class="preview-section" id="previewSection">
+                <div class="section-header">
+                    <h2>Rezultatul</h2>
+                    <p>Compară imaginea originală cu schița generată</p>
+                </div>
+
+                <div class="image-comparison">
+                    <div class="image-container">
+                        <div class="image-title">Fotografia Originală</div>
+                        <img id="originalImage" src="" alt="Imagine originală">
+                    </div>
+                    <div class="image-container">
+                        <div class="image-title">Schița de Colorat</div>
+                        <img id="resultImage" src="" alt="Schiță generată">
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn" id="downloadBtn">
+                        <i class="fas fa-download"></i>
+                        Descarcă Schița
+                    </button>
+                    <button class="btn btn-secondary" id="newImageBtn">
+                        <i class="fas fa-plus"></i>
+                        Încarcă Altă Imagine
+                    </button>
+                </div>
+            </section>
+
+            <!-- Tips Section -->
+            <section class="tips-section">
+                <h2>Sfaturi pentru Cele Mai Bune Rezultate</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">📸</div>
+                        <div class="tip-title">Fotografii Clare</div>
+                        <div class="tip-text">Folosește imagini cu contrast bun și detalii clare pentru rezultate optime</div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">👤</div>
+                        <div class="tip-title">Portrete</div>
+                        <div class="tip-text">Portretele funcționează cel mai bine - față clară, fundal simplu</div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🌟</div>
+                        <div class="tip-title">Lumină Bună</div>
+                        <div class="tip-text">Imaginile cu iluminare uniformă dau schițe mai frumoase</div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🎨</div>
+                        <div class="tip-title">Stiluri Diferite</div>
+                        <div class="tip-text">Încearcă stiluri diferite pentru aceeași imagine și alege favoritul</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="navbar.js?v=1.1"></script>
+    <script>
+        // Configuration - Change this to your server's API URL
+        const API_BASE_URL = 'https://artportret.digital/api';
+        
+        // DOM Elements
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const styleSection = document.getElementById('styleSection');
+        const styleOptions = document.getElementById('styleOptions');
+        const convertBtn = document.getElementById('convertBtn');
+        const processingSection = document.getElementById('processingSection');
+        const previewSection = document.getElementById('previewSection');
+        const originalImage = document.getElementById('originalImage');
+        const resultImage = document.getElementById('resultImage');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const newImageBtn = document.getElementById('newImageBtn');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+        
+        // State
+        let selectedFile = null;
+        let selectedStyle = 'outline';
+        let currentFileId = null;
+        
+        // Event Listeners
+        uploadArea.addEventListener('click', () => fileInput.click());
+        uploadArea.addEventListener('dragover', handleDragOver);
+        uploadArea.addEventListener('dragleave', handleDragLeave);
+        uploadArea.addEventListener('drop', handleDrop);
+        fileInput.addEventListener('change', handleFileSelect);
+        convertBtn.addEventListener('click', convertImage);
+        downloadBtn.addEventListener('click', downloadSketch);
+        newImageBtn.addEventListener('click', resetUpload);
+        
+        // Style selection
+        styleOptions.addEventListener('click', (e) => {
+            const styleCard = e.target.closest('.style-card');
+            if (styleCard) {
+                // Remove selected class from all cards
+                document.querySelectorAll('.style-card').forEach(card => {
+                    card.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked card
+                styleCard.classList.add('selected');
+                selectedStyle = styleCard.dataset.style;
+            }
+        });
+        
+        // Functions
+        function handleDragOver(e) {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        }
+        
+        function handleDragLeave(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+        }
+        
+        function handleDrop(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        }
+        
+        function handleFileSelect(e) {
+            const files = e.target.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        }
+        
+        function handleFile(file) {
+            // Validate file type
+            const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+            if (!allowedTypes.includes(file.type)) {
+                showError('Tip de fișier neacceptat. Folosește JPG, PNG sau WEBP.');
+                return;
+            }
+            
+            // Validate file size (10MB)
+            if (file.size > 10 * 1024 * 1024) {
+                showError('Fișierul este prea mare. Mărimea maximă este 10MB.');
+                return;
+            }
+            
+            selectedFile = file;
+            
+            // Show preview of uploaded image
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                originalImage.src = e.target.result;
+                styleSection.style.display = 'block';
+                convertBtn.disabled = false;
+                
+                // Update upload area to show selected file
+                uploadArea.innerHTML = `
+                    <div class="upload-icon">
+                        <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                    </div>
+                    <div class="upload-text">
+                        Fișier selectat: ${file.name}
+                    </div>
+                    <div class="upload-hint">
+                        Fă clic pentru a selecta alt fișier
+                    </div>
+                `;
+            };
+            reader.readAsDataURL(file);
+            
+            hideMessages();
+        }
+        
+        async function convertImage() {
+            if (!selectedFile) {
+                showError('Selectează o imagine mai întâi.');
+                return;
+            }
+            
+            // Show processing state
+            convertBtn.disabled = true;
+            processingSection.style.display = 'block';
+            previewSection.style.display = 'none';
+            hideMessages();
+            
+            try {
+                const formData = new FormData();
+                formData.append('image', selectedFile);
+                formData.append('style', selectedStyle);
+                
+                const response = await fetch(`${API_BASE_URL}/convert`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
+                    currentFileId = result.file_id;
+                    
+                    // Load the result image
+                    resultImage.src = `${API_BASE_URL}/download/${result.file_id}`;
+                    
+                    // Show result
+                    processingSection.style.display = 'none';
+                    previewSection.style.display = 'block';
+                    
+                    showSuccess('Schița a fost generată cu succes!');
+                } else {
+                    throw new Error(result.error || 'Eroare necunoscută');
+                }
+            } catch (error) {
+                console.error('Error converting image:', error);
+                showError('Eroare la procesarea imaginii: ' + error.message);
+                processingSection.style.display = 'none';
+            } finally {
+                convertBtn.disabled = false;
+            }
+        }
+        
+        function downloadSketch() {
+            if (currentFileId) {
+                const link = document.createElement('a');
+                link.href = `${API_BASE_URL}/download/${currentFileId}`;
+                link.download = `coloring_sketch_${currentFileId}.png`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+        
+        function resetUpload() {
+            selectedFile = null;
+            currentFileId = null;
+            
+            // Reset upload area
+            uploadArea.innerHTML = `
+                <div class="upload-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <div class="upload-text">
+                    Glisează fotografia aici sau fă clic pentru a selecta
+                </div>
+                <div class="upload-hint">
+                    Acceptă: JPG, PNG, WEBP (max 10MB)
+                </div>
+            `;
+            
+            // Reset form
+            fileInput.value = '';
+            styleSection.style.display = 'none';
+            processingSection.style.display = 'none';
+            previewSection.style.display = 'none';
+            convertBtn.disabled = true;
+            
+            // Reset style selection
+            document.querySelectorAll('.style-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            document.querySelector('[data-style="outline"]').classList.add('selected');
+            selectedStyle = 'outline';
+            
+            hideMessages();
+        }
+        
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+        }
+        
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+        }
+        
+        function hideMessages() {
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+        }
+    </script>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">ArtPortret</div>
+                <div class="footer-tagline">Explorează arta portretului</div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-credits">
+                Made by <strong>Siret Luca-Alexandru</strong> and <strong>Zevri Matei-Tudor</strong>
+            </div>
+            
+            <div class="footer-social">
+                <a href="https://github.com/Atomify66/Artportret" class="github-link" target="_blank">
+                    <i class="fab fa-github github-icon"></i>
+                    GitHub Repository
+                </a>
+            </div>
+            
+            <div class="copyright">
+                © 2025 ArtPortret • Toate drepturile rezervate
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

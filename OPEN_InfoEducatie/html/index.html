@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <title>Învață să Desenezi Portrete</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="stylesheet" href="styles.css?v=1.3">
+    <link rel="stylesheet" href="fix-navbar.css?v=1.1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Main Navigation Bar -->
+    <nav class="main-navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <img src="logo.png" alt="Învață Arta Logo" class="navbar-logo-img">
+            </a>
+            <button class="navbar-toggle" id="navbar-toggle">
+                <i class="fas fa-bars" style="color: #333;"></i>
+            </button>
+            <ul class="navbar-links" id="navbar-links">
+                <li><a href="index.html" class="navbar-link active">Desenează Portrete</a></li>
+                <li><a href="coloring.html" class="navbar-link">Schițe de Colorat</a></li>
+                <li><a href="genetics.html" class="navbar-link">Genetica Trăsăturilor</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="main-title">
+                    <i class="fas fa-paint-brush"></i>
+                    Învață să Desenezi Portrete
+                </h1>
+                <p class="subtitle">Ghid interactiv pas cu pas pentru desene realiste</p>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-section="materials">
+                <i class="fas fa-tools"></i>
+                Materiale
+            </button>
+            <button class="nav-tab" data-section="proportions">
+                <i class="fas fa-ruler"></i>
+                Proporții
+            </button>
+            <button class="nav-tab" data-section="step1">
+                <i class="fas fa-play-circle"></i>
+                Pasul 1
+            </button>
+            <button class="nav-tab" data-section="step2">
+                <i class="fas fa-ruler-horizontal"></i>
+                Pasul 2
+            </button>
+            <button class="nav-tab" data-section="step3">
+                <i class="fas fa-eye"></i>
+                Pasul 3
+            </button>
+            <button class="nav-tab" data-section="step4">
+                <i class="fas fa-nose"></i>
+                Pasul 4
+            </button>
+            <button class="nav-tab" data-section="step5">
+                <i class="fas fa-smile"></i>
+                Pasul 5
+            </button>
+            <button class="nav-tab" data-section="step6">
+                <i class="fas fa-deaf"></i>
+                Pasul 6
+            </button>
+            <button class="nav-tab" data-section="step7">
+                <i class="fas fa-cut"></i>
+                Pasul 7
+            </button>
+            <button class="nav-tab" data-section="step8">
+                <i class="fas fa-check-double"></i>
+                Finalizare
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Materials Section -->
+            <section id="materials" class="content-section active">
+                <div class="section-header">
+                    <h2>Materiale Necesare</h2>
+                    <p>Asigură-te că ai toate materialele pentru a începe desenul</p>
+                </div>
+
+                <div class="materials-grid">
+                    <div class="material-card" data-material="pencils">
+                        <div class="material-icon">
+                            <i class="fas fa-pencil-alt"></i>
+                        </div>
+                        <h3>Creioane Grafit</h3>
+                        <p>Diferite tării: HB/2B pentru schiță, 2B/4B pentru contururi, H/2H pentru construcție</p>
+                        <div class="material-check">
+                            <input type="checkbox" id="pencils">
+                            <label for="pencils">Am aceste creioane</label>
+                        </div>
+                    </div>
+
+                    <div class="material-card" data-material="eraser">
+                        <div class="material-icon">
+                            <i class="fas fa-eraser"></i>
+                        </div>
+                        <h3>Radieră</h3>
+                        <p>Gumă moale (gumă frământabilă) pentru șters fără a murdări hârtia</p>
+                        <div class="material-check">
+                            <input type="checkbox" id="eraser">
+                            <label for="eraser">Am radiera</label>
+                        </div>
+                    </div>
+
+                    <div class="material-card" data-material="sharpener">
+                        <div class="material-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3>Ascuțitoare</h3>
+                        <p>Pentru menținerea creioanelor ascuțite pentru detalii fine</p>
+                        <div class="material-check">
+                            <input type="checkbox" id="sharpener">
+                            <label for="sharpener">Am ascuțitoare</label>
+                        </div>
+                    </div>
+
+                    <div class="material-card" data-material="paper">
+                        <div class="material-icon">
+                            <i class="fas fa-file"></i>
+                        </div>
+                        <h3>Hârtie de Desen</h3>
+                        <p>Coală albă A4 (21×30 cm) sau bloc de schițe pentru exersare</p>
+                        <div class="material-check">
+                            <input type="checkbox" id="paper">
+                            <label for="paper">Am hârtia</label>
+                        </div>
+                    </div>
+
+                    <div class="material-card optional" data-material="optional">
+                        <div class="material-icon">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <h3>Opțional</h3>
+                        <p>Compas, riglă, bețișor de hârtie pentru estompare, easel sau planșetă înclinată</p>
+                        <div class="material-check">
+                            <input type="checkbox" id="optional">
+                            <label for="optional">Am acestea (opțional)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-indicator">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="materials-progress"></div>
+                    </div>
+                    <p class="progress-text">
+                        <span id="checked-count">0</span> / <span id="total-count">4</span> materiale verificate
+                    </p>
+                </div>
+
+                <button class="continue-btn" id="materials-continue" disabled>
+                    Continuă la Proporții
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </section>
+
+            <!-- Proportions Section -->
+            <section id="proportions" class="content-section">
+                <div class="section-header">
+                    <h2>Proporțiile de Bază ale Feței</h2>
+                    <p>Schema unui portret frontal cu liniile de construcție</p>
+                </div>
+
+                <div class="proportions-container">
+                    <div class="proportions-visual">
+                        <canvas id="proportions-canvas" width="400" height="600"></canvas>
+                        <div class="proportions-controls">
+                            <button class="proportion-btn active" data-guide="all">
+                                <i class="fas fa-eye"></i>
+                                Toate Liniile
+                            </button>
+                            <button class="proportion-btn" data-guide="symmetry">
+                                <i class="fas fa-arrows-alt"></i>
+                                Simetrie
+                            </button>
+                            <button class="proportion-btn" data-guide="eyes">
+                                <i class="fas fa-eye"></i>
+                                Ochii
+                            </button>
+                            <button class="proportion-btn" data-guide="nose">
+                                <i class="fas fa-nose"></i>
+                                Nasul
+                            </button>
+                            <button class="proportion-btn" data-guide="mouth">
+                                <i class="fas fa-smile"></i>
+                                Gura
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="proportions-info">
+                        <div class="proportion-rule active" data-rule="all">
+                            <h3>Regulile Principale</h3>
+                            <ul>
+                                <li>Ochii se află la jumătatea distanței dintre creștet și bărbie</li>
+                                <li>Distanța dintre ochi = lățimea unui ochi</li>
+                                <li>Capul = 5 x lățimea unui ochi</li>
+                                <li>Urechile: de la sprâncene la baza nasului</li>
+                                <li>Lățimea gurii = distanța dintre pupile</li>
+                                <li>Fața = 3 segmente egale (păr-sprâncene, sprâncene-nas, nas-bărbie)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="continue-btn" id="proportions-continue">
+                    Începe Desenul
+                    <i class="fas fa-play"></i>
+                </button>
+            </section>
+
+            <!-- Step 1 Section -->
+            <section id="step1" class="content-section">
+                <div class="section-header">
+                    <h2>Pasul 1: Schițarea Formei Capului</h2>
+                    <p>Desenează forma de bază și axele de simetrie</p>
+                </div>
+
+                <div class="drawing-container">
+                    <div class="canvas-area">
+                        <canvas id="drawing-canvas" width="600" height="800"></canvas>
+                        <div class="canvas-overlay">
+                            <div class="guidelines" id="guidelines"></div>
+                        </div>
+                    </div>
+
+                    <div class="drawing-controls">
+                        <!-- Enhanced toolbox will be injected here by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="dimensions-info">
+                    <h3>Dimensiuni Recomandate (A4)</h3>
+                    <div class="dimension-cards">
+                        <div class="dimension-card">
+                            <i class="fas fa-arrows-alt-v"></i>
+                            <span class="dimension-label">Înălțime Cap</span>
+                            <span class="dimension-value">12-18 cm</span>
+                        </div>
+                        <div class="dimension-card">
+                            <i class="fas fa-arrows-alt-h"></i>
+                            <span class="dimension-label">Lățime Cap</span>
+                            <span class="dimension-value">¾ din înălțime</span>
+                        </div>
+                        <div class="dimension-card">
+                            <i class="fas fa-arrows-alt-v"></i>
+                            <span class="dimension-label">Gât</span>
+                            <span class="dimension-value">½ din lățimea capului</span>
+                        </div>
+                        <div class="dimension-card">
+                            <i class="fas fa-arrows-alt-h"></i>
+                            <span class="dimension-label">Umeri</span>
+                            <span class="dimension-value">1.5x lățimea capului</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2 Section -->
+            <section id="step2" class="content-section">
+                <div class="section-header">
+                    <h2>Pasul 2: Liniile Principale ale Feței</h2>
+                    <p>Stabilește ghidajele orizontale pentru ochi, nas și gură</p>
+                </div>
+
+                <div class="drawing-container">
+                    <div class="canvas-area">
+                        <canvas id="drawing-canvas-step2" width="600" height="800"></canvas>
+                        <div class="canvas-overlay">
+                            <div class="facial-guidelines" id="facial-guidelines"></div>
+                        </div>
+                    </div>
+
+                    <div class="drawing-controls">
+                        <div class="step-guide">
+                            <h3>Liniile Faciale</h3>
+                            <div class="guideline-steps">
+                                <div class="guideline-item active" data-line="eyes">
+                                    <div class="line-indicator" style="background: #4f46e5;"></div>
+                                    <div class="line-content">
+                                        <h4>Linia Ochilor</h4>
+                                        <p>La mijlocul înălțimii capului - împarte ovalul în două jumătăți egale</p>
+                                    </div>
+                                    <button class="show-line-btn" data-line="eyes">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+
+                                <div class="guideline-item" data-line="nose">
+                                    <div class="line-indicator" style="background: #059669;"></div>
+                                    <div class="line-content">
+                                        <h4>Linia Nasului</h4>
+                                        <p>La jumătatea distanței dintre ochi și bărbie</p>
+                                    </div>
+                                    <button class="show-line-btn" data-line="nose">
+                                        <i class="fas fa-nose"></i>
+                                    </button>
+                                </div>
+
+                                <div class="guideline-item" data-line="mouth">
+                                    <div class="line-indicator" style="background: #dc2626;"></div>
+                                    <div class="line-content">
+                                        <h4>Linia Gurii</h4>
+                                        <p>La jumătatea distanței dintre nas și bărbie</p>
+                                    </div>
+                                    <button class="show-line-btn" data-line="mouth">
+                                        <i class="fas fa-smile"></i>
+                                    </button>
+                                </div>
+
+                                <div class="guideline-item" data-line="eyebrows">
+                                    <div class="line-indicator" style="background: #f59e0b;"></div>
+                                    <div class="line-content">
+                                        <h4>Linia Sprâncenelor</h4>
+                                        <p>Puțin deasupra liniei ochilor (opțional)</p>
+                                    </div>
+                                    <button class="show-line-btn" data-line="eyebrows">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="proportion-info">
+                            <h3>Regula Proporțiilor</h3>
+                            <div class="proportion-rule-card">
+                                <div class="rule-visual">
+                                    <div class="face-segments">
+                                        <div class="segment" style="background: #4f46e5;">Ochi</div>
+                                        <div class="segment" style="background: #059669;">Nas</div>
+                                        <div class="segment" style="background: #dc2626;">Gură</div>
+                                    </div>
+                                </div>
+                                <div class="rule-text">
+                                    <p><strong>3 segmente egale:</strong></p>
+                                    <ul>
+                                        <li>Sprâncene → Nas</li>
+                                        <li>Nas → Buza inferioară</li>
+                                        <li>Buze → Bărbie</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="continue-btn" id="step2-continue">
+                    Continuă la Ochii
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </section>
+
+            <!-- Step 3 Section -->
+            <section id="step3" class="content-section">
+                <div class="section-header">
+                    <h2>Pasul 3: Desenarea Ochilor</h2>
+                    <p>Primul element detaliat - poziția lor determină celelalte trăsături</p>
+                </div>
+
+                <div class="drawing-container">
+                    <div class="canvas-area">
+                        <canvas id="drawing-canvas-step3" width="600" height="800"></canvas>
+                        <div class="canvas-overlay">
+                            <div class="eye-guidelines" id="eye-guidelines"></div>
+                        </div>
+                    </div>
+
+                    <div class="drawing-controls">
+                        <div class="eye-guide">
+                            <h3>Desenarea Ochilor</h3>
+                            <div class="eye-steps">
+                                <div class="eye-step active" data-step="positioning">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Poziționarea</h4>
+                                        <p>Marchează poziția fiecărui ochi pe linia orizontală</p>
+                                    </div>
+                                </div>
+
+                                <div class="eye-step" data-step="spacing">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Distanța</h4>
+                                        <p>Distanța între ochi = lățimea unui ochi</p>
+                                    </div>
+                                </div>
+
+                                <div class="eye-step" data-step="shape">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Forma</h4>
+                                        <p>Contur migdalat - linie curbată sus, mai puțin curbată jos</p>
+                                    </div>
+                                </div>
+
+                                <div class="eye-step" data-step="details">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Detaliile</h4>
+                                        <p>Iris, pupilă, reflexia luminii și sprâncenele</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="eye-measurements">
+                                <h4>Măsurători Ochii</h4>
+                                <div class="measurement-item">
+                                    <span class="measure-label">Lățime ochi:</span>
+                                    <span class="measure-value">1.5-2.5 cm</span>
+                                </div>
+                                <div class="measurement-item">
+                                    <span class="measure-label">Distanță între ochi:</span>
+                                    <span class="measure-value">= lățimea unui ochi</span>
+                                </div>
+                                <div class="measurement-item">
+                                    <span class="measure-label">Împărțire față:</span>
+                                    <span class="measure-value">5 părți egale</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="eye-anatomy">
+                            <h3>Anatomia Ochiului</h3>
+                            <div class="eye-parts">
+                                <div class="eye-part" data-part="upper-lid">
+                                    <div class="part-color" style="background: #4f46e5;"></div>
+                                    <span>Pleoapa superioară</span>
+                                </div>
+                                <div class="eye-part" data-part="lower-lid">
+                                    <div class="part-color" style="background: #059669;"></div>
+                                    <span>Pleoapa inferioară</span>
+                                </div>
+                                <div class="eye-part" data-part="iris">
+                                    <div class="part-color" style="background: #7c3aed;"></div>
+                                    <span>Iris</span>
+                                </div>
+                                <div class="eye-part" data-part="pupil">
+                                    <div class="part-color" style="background: #1f2937;"></div>
+                                    <span>Pupilă</span>
+                                </div>
+                                <div class="eye-part" data-part="highlight">
+                                    <div class="part-color" style="background: #ffffff; border: 1px solid #e5e7eb;"></div>
+                                    <span>Reflexia luminii</span>
+                                </div>
+                                <div class="eye-part" data-part="eyebrow">
+                                    <div class="part-color" style="background: #8b5cf6;"></div>
+                                    <span>Sprânceana</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+
+            <!-- Step 4 Section -->
+            <section id="step4" class="content-section">
+                <div class="section-header">
+                    <h2>Pasul 4: Desenarea Nasului</h2>
+                    <p>Poziție centrală cu proporții precise față de ochi și axa facială</p>
+                </div>
+
+                <div class="drawing-container">
+                    <div class="canvas-area">
+                        <canvas id="drawing-canvas-step4" width="600" height="800"></canvas>
+                        <div class="canvas-overlay">
+                            <div class="nose-guidelines" id="nose-guidelines"></div>
+                        </div>
+                    </div>
+
+                    <div class="drawing-controls">
+                        <div class="nose-guide">
+                            <h3>Desenarea Nasului</h3>
+                            <div class="nose-steps">
+                                <div class="nose-step active" data-step="positioning">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Poziționarea</h4>
+                                        <p>Vârful nasului pe linia dintre ochi și bărbie</p>
+                                    </div>
+                                </div>
+
+                                <div class="nose-step" data-step="width">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Lățimea</h4>
+                                        <p>Aliniat cu colțurile interioare ale ochilor</p>
+                                    </div>
+                                </div>
+
+                                <div class="nose-step" data-step="base">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Baza Nasului</h4>
+                                        <p>Formă trapezoidală cu nările și septul</p>
+                                    </div>
+                                </div>
+
+                                <div class="nose-step" data-step="bridge">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Puntea Nasului</h4>
+                                        <p>Linii curbe de la ochii către baza nasului</p>
+                                    </div>
+                                </div>
+
+                                <div class="nose-step" data-step="details">
+                                    <div class="step-number">5</div>
+                                    <div class="step-content">
+                                        <h4>Detaliile</h4>
+                                        <p>Nările, vârful rotunjit și umbrele</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="nose-measurements">
+                                <h4>Măsurători Nas</h4>
+                                <div class="measurement-grid">
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Lățime nas:</span>
+                                        <span class="measure-value">= distanța între ochi</span>
+                                    </div>
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Poziție vârf:</span>
+                                        <span class="measure-value">Linia nas (ochi-bărbie)</span>
+                                    </div>
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Alinierea:</span>
+                                        <span class="measure-value">Colțuri interioare ochi</span>
+                                    </div>
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Formă bază:</span>
+                                        <span class="measure-value">Trapez cu vârful jos</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="nose-anatomy">
+                            <h3>Anatomia Nasului</h3>
+                            <div class="nose-parts">
+                                <div class="nose-part" data-part="bridge">
+                                    <div class="part-color" style="background: #4f46e5;"></div>
+                                    <span>Puntea nasului</span>
+                                </div>
+                                <div class="nose-part" data-part="tip">
+                                    <div class="part-color" style="background: #059669;"></div>
+                                    <span>Vârful nasului</span>
+                                </div>
+                                <div class="nose-part" data-part="base">
+                                    <div class="part-color" style="background: #dc2626;"></div>
+                                    <span>Baza nasului</span>
+                                </div>
+                                <div class="nose-part" data-part="nostrils">
+                                    <div class="part-color" style="background: #7c3aed;"></div>
+                                    <span>Nările</span>
+                                </div>
+                                <div class="nose-part" data-part="septum">
+                                    <div class="part-color" style="background: #f59e0b;"></div>
+                                    <span>Septul nazal</span>
+                                </div>
+                                <div class="nose-part" data-part="shadow">
+                                    <div class="part-color" style="background: #64748b;"></div>
+                                    <span>Umbrele</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nose-proportions">
+                    <h3>Proporțiile Nasului</h3>
+                    <div class="proportion-visual">
+                        <div class="face-diagram">
+                            <div class="face-outline">
+                                <div class="eye-markers">
+                                    <div class="eye left-eye"></div>
+                                    <div class="eye right-eye"></div>
+                                </div>
+                                <div class="nose-area">
+                                    <div class="nose-width-guide"></div>
+                                    <div class="nose-shape"></div>
+                                </div>
+                                <div class="alignment-lines">
+                                    <div class="vertical-line left"></div>
+                                    <div class="vertical-line right"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="proportion-rules">
+                            <div class="rule-item">
+                                <div class="rule-icon">📏</div>
+                                <div class="rule-text">
+                                    <strong>Lățimea:</strong> Egală cu distanța dintre ochi
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="rule-icon">📐</div>
+                                <div class="rule-text">
+                                    <strong>Alinierea:</strong> Margini la colțurile interioare ale ochilor
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="rule-icon">📍</div>
+                                <div class="rule-text">
+                                    <strong>Poziția:</strong> Vârful pe linia nasului (mijloc ochi-bărbie)
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="rule-icon">🔺</div>
+                                <div class="rule-text">
+                                    <strong>Forma:</strong> Trapez cu vârful în jos, simetric
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="continue-btn" id="step4-continue">
+                    Continuă la Gură
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </section>
+
+            <!-- Step 5 Section -->
+            <section id="step5" class="content-section">
+                <div class="section-header">
+                    <h2>Pasul 5: Desenarea Gurii</h2>
+                    <p>Buzele cu proporții corecte și detalii realiste</p>
+                </div>
+
+                <div class="drawing-container">
+                    <div class="canvas-area">
+                        <canvas id="drawing-canvas-step5" width="600" height="800"></canvas>
+                        <div class="canvas-overlay">
+                            <div class="mouth-guidelines" id="mouth-guidelines"></div>
+                        </div>
+                    </div>
+
+                    <div class="drawing-controls">
+                        <div class="mouth-guide">
+                            <h3>Desenarea Gurii</h3>
+                            <div class="mouth-steps">
+                                <div class="mouth-step active" data-step="positioning">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Poziționarea</h4>
+                                        <p>Linia gurii la 1/3 deasupra bărbiei</p>
+                                    </div>
+                                </div>
+
+                                <div class="mouth-step" data-step="width">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Lățimea</h4>
+                                        <p>Colțurile aliniate cu centrul ochilor</p>
+                                    </div>
+                                </div>
+
+                                <div class="mouth-step" data-step="lipline">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Linia Buzelor</h4>
+                                        <p>Închiderea buzelor - ușor curbată</p>
+                                    </div>
+                                </div>
+
+                                <div class="mouth-step" data-step="upperlip">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Buza Superioară</h4>
+                                        <p>Arcul lui Cupidon - forma în V inversat</p>
+                                    </div>
+                                </div>
+
+                                <div class="mouth-step" data-step="lowerlip">
+                                    <div class="step-number">5</div>
+                                    <div class="step-content">
+                                        <h4>Buza Inferioară</h4>
+                                        <p>Curbă simplă, mai plină și rotunjită</p>
+                                    </div>
+                                </div>
+
+                                <div class="mouth-step" data-step="details">
+                                    <div class="step-number">6</div>
+                                    <div class="step-content">
+                                        <h4>Detaliile</h4>
+                                        <p>Volume, umbre și highlight-uri</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mouth-measurements">
+                                <h4>Măsurători Gură</h4>
+                                <div class="measurement-grid">
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Lățime gură:</span>
+                                        <span class="measure-value">Centrul ochilor</span>
+                                    </div>
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Poziție:</span>
+                                        <span class="measure-value">1/3 deasupra bărbiei</span>
+                                    </div>
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Buza inferioară:</span>
+                                        <span class="measure-value">Mai plină ca superioara</span>
+                                    </div>
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Expresie:</span>
+                                        <span class="measure-value">Neutră sau ușor zâmbitoare</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="mouth-anatomy">
+                            <h3>Anatomia Gurii</h3>
+                            <div class="mouth-parts">
+                                <div class="mouth-part" data-part="lipline">
+                                    <div class="part-color" style="background: #dc2626;"></div>
+                                    <span>Linia buzelor</span>
+                                </div>
+                                <div class="mouth-part" data-part="cupidsbow">
+                                    <div class="part-color" style="background: #4f46e5;"></div>
+                                    <span>Arcul lui Cupidon</span>
+                                </div>
+                                <div class="mouth-part" data-part="upperlip">
+                                    <div class="part-color" style="background: #7c3aed;"></div>
+                                    <span>Buza superioară</span>
+                                </div>
+                                <div class="mouth-part" data-part="lowerlip">
+                                    <div class="part-color" style="background: #059669;"></div>
+                                    <span>Buza inferioară</span>
+                                </div>
+                                <div class="mouth-part" data-part="corners">
+                                    <div class="part-color" style="background: #f59e0b;"></div>
+                                    <span>Colțurile gurii</span>
+                                </div>
+                                <div class="mouth-part" data-part="shadow">
+                                    <div class="part-color" style="background: #64748b;"></div>
+                                    <span>Umbre și volume</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mouth-expressions">
+                    <h3>Expresii Faciale</h3>
+                    <div class="expression-gallery">
+                        <div class="expression-card active" data-expression="neutral">
+                            <div class="expression-demo">
+                                <canvas width="120" height="80" class="expression-canvas" data-type="neutral"></canvas>
+                            </div>
+                            <span>Neutră</span>
+                        </div>
+                        <div class="expression-card" data-expression="smile">
+                            <div class="expression-demo">
+                                <canvas width="120" height="80" class="expression-canvas" data-type="smile"></canvas>
+                            </div>
+                            <span>Zâmbet Ușor</span>
+                        </div>
+                        <div class="expression-card" data-expression="serious">
+                            <div class="expression-demo">
+                                <canvas width="120" height="80" class="expression-canvas" data-type="serious"></canvas>
+                            </div>
+                            <span>Serioasă</span>
+                        </div>
+                        <div class="expression-card" data-expression="pursed">
+                            <div class="expression-demo">
+                                <canvas width="120" height="80" class="expression-canvas" data-type="pursed"></canvas>
+                            </div>
+                            <span>Buzele Strânse</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mouth-proportions">
+                    <h3>Proporțiile Gurii</h3>
+                    <div class="proportion-visual">
+                        <div class="face-diagram">
+                            <div class="face-outline">
+                                <div class="eye-markers">
+                                    <div class="eye left-eye">
+                                        <div class="eye-center"></div>
+                                    </div>
+                                    <div class="eye right-eye">
+                                        <div class="eye-center"></div>
+                                    </div>
+                                </div>
+                                <div class="nose-area">
+                                    <div class="nose-shape-mini"></div>
+                                </div>
+                                <div class="mouth-area">
+                                    <div class="mouth-width-guide"></div>
+                                    <div class="mouth-shape"></div>
+                                </div>
+                                <div class="alignment-lines">
+                                    <div class="vertical-line left"></div>
+                                    <div class="vertical-line right"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="proportion-rules">
+                            <div class="rule-item">
+                                <div class="rule-icon">📏</div>
+                                <div class="rule-text">
+                                    <strong>Lățimea:</strong> Colțurile aliniate cu centrul ochilor
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="rule-icon">📍</div>
+                                <div class="rule-text">
+                                    <strong>Poziția:</strong> 1/3 din distanța nas-bărbie (deasupra bărbiei)
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="rule-icon">🎭</div>
+                                <div class="rule-text">
+                                    <strong>Proporții:</strong> Buza inferioară mai plină decât cea superioară
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="rule-icon">💋</div>
+                                <div class="rule-text">
+                                    <strong>Forma:</strong> Arcul lui Cupidon la buza superioară
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="continue-btn" id="step5-continue">
+                    Continuă la Urechi
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </section>
+
+            <!-- Step 6 Section -->
+            <section id="step6" class="content-section">
+                <div class="section-header">
+                    <h2>Pasul 6: Adăugarea Urechilor</h2>
+                    <p>Poziționare corectă și detalii anatomice pentru urechile realiste</p>
+                </div>
+
+                <div class="drawing-container">
+                    <div class="canvas-area">
+                        <canvas id="drawing-canvas-step6" width="600" height="800"></canvas>
+                        <div class="canvas-overlay">
+                            <div class="ear-guidelines" id="ear-guidelines"></div>
+                        </div>
+                    </div>
+
+                    <div class="drawing-controls">
+                        <div class="ear-guide">
+                            <h3>Desenarea Urechilor</h3>
+                            <div class="ear-steps">
+                                <div class="ear-step active" data-step="positioning">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Poziționarea</h4>
+                                        <p>Între linia ochilor și linia nasului</p>
+                                    </div>
+                                </div>
+
+                                <div class="ear-step" data-step="alignment">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Alinierea</h4>
+                                        <p>Vârful cu sprâncenele, lobul cu baza nasului</p>
+                                    </div>
+                                </div>
+
+                                <div class="ear-step" data-step="shape">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Forma</h4>
+                                        <p>Oval alungit vertical, lipit de cap</p>
+                                    </div>
+                                </div>
+
+                                <div class="ear-step" data-step="size">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Dimensiunea</h4>
+                                        <p>5-6 cm în desen, între liniile ochii-nas</p>
+                                    </div>
+                                </div>
+
+                                <div class="ear-step" data-step="details">
+                                    <div class="step-number">5</div>
+                                    <div class="step-content">
+                                        <h4>Detaliile</h4>
+                                        <p>Concha, helix și pliurile interioare</p>
+                                    </div>
+                                </div>
+
+                                <div class="ear-step" data-step="perspective">
+                                    <div class="step-number">6</div>
+                                    <div class="step-content">
+                                        <h4>Perspectiva</h4>
+                                        <p>Văzute din față, pavilion parțial vizibil</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ear-measurements">
+                                <h4>Măsurători Urechi</h4>
+                                <div class="measurement-grid">
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Înălțime:</span>
+                                        <span class="measure-value">Ochi → Nas</span>
+                                    </div>
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Vârf:</span>
+                                        <span class="measure-value">Linia sprâncenelor</span>
+                                    </div>
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Lob:</span>
+                                        <span class="measure-value">Baza nasului</span>
+                                    </div>
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Orientare:</span>
+                                        <span class="measure-value">Vertical, lipit de cap</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="ear-anatomy">
+                            <h3>Anatomia Urechii</h3>
+                            <div class="ear-parts">
+                                <div class="ear-part" data-part="helix">
+                                    <div class="part-color" style="background: #4f46e5;"></div>
+                                    <span>Helix (marginea exterioară)</span>
+                                </div>
+                                <div class="ear-part" data-part="concha">
+                                    <div class="part-color" style="background: #059669;"></div>
+                                    <span>Concha (partea concavă)</span>
+                                </div>
+                                <div class="ear-part" data-part="lobe">
+                                    <div class="part-color" style="background: #dc2626;"></div>
+                                    <span>Lobul urechii</span>
+                                </div>
+                                <div class="ear-part" data-part="antihelix">
+                                    <div class="part-color" style="background: #7c3aed;"></div>
+                                    <span>Antihelix (pliul interior)</span>
+                                </div>
+                                <div class="ear-part" data-part="tragus">
+                                    <div class="part-color" style="background: #f59e0b;"></div>
+                                    <span>Tragus (proeminența din față)</span>
+                                </div>
+                                <div class="ear-part" data-part="antitragus">
+                                    <div class="part-color" style="background: #8b5cf6;"></div>
+                                    <span>Antitragus</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ear-views">
+                    <h3>Perspective Diferite</h3>
+                    <div class="view-gallery">
+                        <div class="view-card active" data-view="front">
+                            <div class="view-demo">
+                                <canvas width="120" height="150" class="view-canvas" data-type="front"></canvas>
+                            </div>
+                            <span>Vedere Frontală</span>
+                        </div>
+                        <div class="view-card" data-view="quarter">
+                            <div class="view-demo">
+                                <canvas width="120" height="150" class="view-canvas" data-type="quarter"></canvas>
+                            </div>
+                            <span>3/4 Vedere</span>
+                        </div>
+                        <div class="view-card" data-view="profile">
+                            <div class="view-demo">
+                                <canvas width="120" height="150" class="view-canvas" data-type="profile"></canvas>
+                            </div>
+                            <span>Profil</span>
+                        </div>
+                        <div class="view-card" data-view="covered">
+                            <div class="view-demo">
+                                <canvas width="120" height="150" class="view-canvas" data-type="covered"></canvas>
+                            </div>
+                            <span>Acoperit de Păr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ear-proportions">
+                    <h3>Proporțiile Urechilor</h3>
+                    <div class="proportion-visual">
+                        <div class="face-diagram">
+                            <div class="face-outline">
+                                <div class="eye-markers">
+                                    <div class="eye left-eye"></div>
+                                    <div class="eye right-eye"></div>
+                                </div>
+                                <div class="nose-area">
+                                    <div class="nose-shape-mini"></div>
+                                </div>
+                                <div class="mouth-area">
+                                    <div class="mouth-shape-mini"></div>
+                                </div>
+                                <div class="ear-areas">
+                                    <div class="ear left-ear"></div>
+                                    <div class="ear right-ear"></div>
+                                </div>
+                                <div class="alignment-lines">
+                                    <div class="horizontal-line eyebrow"></div>
+                                    <div class="horizontal-line nose-base"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="proportion-rules">
+                            <div class="rule-item">
+                                <div class="rule-icon">👂</div>
+                                <div class="rule-text">
+                                    <strong>Poziție:</strong> Între linia ochilor și linia nasului
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="rule-icon">🎯</div>
+                                <div class="rule-text">
+                                    <strong>Vârful:</strong> Aliniat cu linia sprâncenelor/ochilor
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="rule-icon">📐</div>
+                                <div class="rule-text">
+                                    <strong>Lobul:</strong> Aliniat cu baza nasului
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="rule-icon">📏</div>
+                                <div class="rule-text">
+                                    <strong>Dimensiune:</strong> 5-6 cm în desen (proporțional cu capul)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="continue-btn" id="step6-continue">
+                    Continuă la Păr
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </section>
+
+            <!-- Step 7 Section -->
+            <section id="step7" class="content-section">
+                <div class="section-header">
+                    <h2>Pasul 7: Redarea Părului și a Liniei Părului</h2>
+                    <p>Finalizarea portretului cu părul, texturi și detalii realiste</p>
+                </div>
+
+                <div class="drawing-container">
+                    <div class="canvas-area">
+                        <canvas id="drawing-canvas-step7" width="600" height="800"></canvas>
+                        <div class="canvas-overlay">
+                            <div class="hair-guidelines" id="hair-guidelines"></div>
+                        </div>
+                    </div>
+
+                    <div class="drawing-controls">
+                        <div class="hair-guide">
+                            <h3>Desenarea Părului</h3>
+                            <div class="hair-steps">
+                                <div class="hair-step active" data-step="hairline">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Linia Părului</h4>
+                                        <p>La ~¼ din înălțimea capului de la creștet</p>
+                                    </div>
+                                </div>
+
+                                <div class="hair-step" data-step="volume">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Volumul</h4>
+                                        <p>Ridică conturul deasupra craniului</p>
+                                    </div>
+                                </div>
+
+                                <div class="hair-step" data-step="direction">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Direcția</h4>
+                                        <p>Urmează direcția firelor de păr</p>
+                                    </div>
+                                </div>
+
+                                <div class="hair-step" data-step="strands">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Șuvițele</h4>
+                                        <p>Mase mari, nu fir cu fir</p>
+                                    </div>
+                                </div>
+
+                                <div class="hair-step" data-step="details">
+                                    <div class="step-number">5</div>
+                                    <div class="step-content">
+                                        <h4>Detaliile</h4>
+                                        <p>Cărare, șuvițe rebele, lumini</p>
+                                    </div>
+                                </div>
+
+                                <div class="hair-step" data-step="shading">
+                                    <div class="step-number">6</div>
+                                    <div class="step-content">
+                                        <h4>Umbrirea</h4>
+                                        <p>Zone de strălucire și umbră</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hair-measurements">
+                                <h4>Proporții Păr</h4>
+                                <div class="measurement-grid">
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Linia părului:</span>
+                                        <span class="measure-value">¼ de la creștet</span>
+                                    </div>
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Fruntea:</span>
+                                        <span class="measure-value">Sprâncene → păr</span>
+                                    </div>
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Volum:</span>
+                                        <span class="measure-value">Deasupra craniului</span>
+                                    </div>
+                                    <div class="measurement-item">
+                                        <span class="measure-label">Lateral:</span>
+                                        <span class="measure-value">Depășește capul</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="hair-styles">
+                            <h3>Stiluri de Păr</h3>
+                            <div class="style-gallery">
+                                <div class="style-card active" data-style="straight">
+                                    <div class="style-demo">
+                                        <canvas width="100" height="120" class="style-canvas" data-type="straight"></canvas>
+                                    </div>
+                                    <span>Drept</span>
+                                </div>
+                                <div class="style-card" data-style="wavy">
+                                    <div class="style-demo">
+                                        <canvas width="100" height="120" class="style-canvas" data-type="wavy"></canvas>
+                                    </div>
+                                    <span>Ondulat</span>
+                                </div>
+                                <div class="style-card" data-style="curly">
+                                    <div class="style-demo">
+                                        <canvas width="100" height="120" class="style-canvas" data-type="curly"></canvas>
+                                    </div>
+                                    <span>Creț</span>
+                                </div>
+                                <div class="style-card" data-style="short">
+                                    <div class="style-demo">
+                                        <canvas width="100" height="120" class="style-canvas" data-type="short"></canvas>
+                                    </div>
+                                    <span>Scurt</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="hair-techniques">
+                    <h3>Tehnici de Desenare</h3>
+                    <div class="technique-gallery">
+                        <div class="technique-card" data-technique="strand">
+                            <div class="technique-demo">
+                                <canvas width="150" height="100" class="technique-canvas" data-type="strand"></canvas>
+                            </div>
+                            <div class="technique-info">
+                                <h4>Șuvițe</h4>
+                                <p>Desenează în grupuri, nu individual</p>
+                            </div>
+                        </div>
+                        <div class="technique-card" data-technique="flow">
+                            <div class="technique-demo">
+                                <canvas width="150" height="100" class="technique-canvas" data-type="flow"></canvas>
+                            </div>
+                            <div class="technique-info">
+                                <h4>Fluiditate</h4>
+                                <p>Urmează direcția naturală</p>
+                            </div>
+                        </div>
+                        <div class="technique-card" data-technique="volume">
+                            <div class="technique-demo">
+                                <canvas width="150" height="100" class="technique-canvas" data-type="volume"></canvas>
+                            </div>
+                            <div class="technique-info">
+                                <h4>Volum</h4>
+                                <p>Ridică deasupra capului</p>
+                            </div>
+                        </div>
+                        <div class="technique-card" data-technique="shading">
+                            <div class="technique-demo">
+                                <canvas width="150" height="100" class="technique-canvas" data-type="shading"></canvas>
+                            </div>
+                            <div class="technique-info">
+                                <h4>Umbrire</h4>
+                                <p>Lumini și umbre în mase</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hair-proportions">
+                    <h3>Proporțiile Părului</h3>
+                    <div class="proportion-visual">
+                        <div class="face-diagram">
+                            <div class="face-outline">
+                                <div class="hair-areas">
+                                    <div class="hairline-area"></div>
+                                    <div class="hair-volume"></div>
+                                    <div class="forehead-area"></div>
+                                </div>
+                                <div class="facial-features">
+                                    <div class="eye left-eye"></div>
+                                    <div class="eye right-eye"></div>
+                                    <div class="nose-shape-mini"></div>
+                                    <div class="mouth-shape-mini"></div>
+                                </div>
+                                <div class="proportion-lines">
+                                    <div class="horizontal-line crown"></div>
+                                    <div class="horizontal-line hairline"></div>
+                                    <div class="horizontal-line eyebrow"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="proportion-rules">
+                            <div class="rule-item">
+                                <div class="rule-icon">✂️</div>
+                                <div class="rule-text">
+                                    <strong>Linia părului:</strong> La ¼ din înălțimea capului de la creștet
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="rule-icon">📏</div>
+                                <div class="rule-text">
+                                    <strong>Fruntea:</strong> Distanța sprâncene-păr = nas-sprâncene
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="rule-icon">📐</div>
+                                <div class="rule-text">
+                                    <strong>Volum:</strong> Părul depășește conturul craniului
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <div class="rule-icon">🎨</div>
+                                <div class="rule-text">
+                                    <strong>Mase:</strong> Gândește în șuvițe mari, nu fire individuale
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="continue-btn" id="step7-continue">
+                    Continuă la Finalizare
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </section>
+
+            <!-- Step 8 Section -->
+            <section id="step8" class="content-section">
+                <div class="section-header">
+                    <h2>Pasul 8: Verificare și Finisare</h2>
+                    <p>Ultimele retușuri și detalii pentru un portret perfect și profesional</p>
+                </div>
+
+                <div class="drawing-container">
+                    <div class="canvas-area">
+                        <canvas id="drawing-canvas-step8" width="600" height="800"></canvas>
+                        <div class="canvas-overlay">
+                            <div class="finishing-guidelines" id="finishing-guidelines"></div>
+                        </div>
+                    </div>
+
+                    <div class="drawing-controls">
+                        <div class="finishing-guide">
+                            <h3>Finalizarea Portretului</h3>
+                            <div class="finishing-steps">
+                                <div class="finishing-step active" data-step="cleanup">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Curățenie</h4>
+                                        <p>Șterge liniile de construcție</p>
+                                    </div>
+                                </div>
+
+                                <div class="finishing-step" data-step="symmetry">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Simetria</h4>
+                                        <p>Verifică și corectează alinierea</p>
+                                    </div>
+                                </div>
+
+                                <div class="finishing-step" data-step="emphasis">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Accentuare</h4>
+                                        <p>Întărește liniile importante</p>
+                                    </div>
+                                </div>
+
+                                <div class="finishing-step" data-step="shading">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Umbrire</h4>
+                                        <p>Adaugă umbre și profunzime</p>
+                                    </div>
+                                </div>
+
+                                <div class="finishing-step" data-step="highlights">
+                                    <div class="step-number">5</div>
+                                    <div class="step-content">
+                                        <h4>Luminile</h4>
+                                        <p>Scoate în evidență strălucirile</p>
+                                    </div>
+                                </div>
+
+                                <div class="finishing-step" data-step="signature">
+                                    <div class="step-number">6</div>
+                                    <div class="step-content">
+                                        <h4>Semnătură</h4>
+                                        <p>Semnează discret desenul</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="finishing-measurements">
+                                <h4>Verificări Finale</h4>
+                                <div class="check-grid">
+                                    <div class="check-item" data-check="eyes">
+                                        <input type="checkbox" id="check-eyes">
+                                        <label for="check-eyes">Simetria ochilor</label>
+                                    </div>
+                                    <div class="check-item" data-check="nose">
+                                        <input type="checkbox" id="check-nose">
+                                        <label for="check-nose">Centrul nasului</label>
+                                    </div>
+                                    <div class="check-item" data-check="mouth">
+                                        <input type="checkbox" id="check-mouth">
+                                        <label for="check-mouth">Alinierea gurii</label>
+                                    </div>
+                                    <div class="check-item" data-check="ears">
+                                        <input type="checkbox" id="check-ears">
+                                        <label for="check-ears">Nivelul urechilor</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="signature-section">
+                    <h3>Semnează-ți Portretul</h3>
+                    <div class="signature-options">
+                        <input type="text" id="artist-name" placeholder="Numele tău aici..." maxlength="20">
+                        <button class="signature-btn" id="add-signature">
+                            <i class="fas fa-signature"></i>
+                            Adaugă Semnătura
+                        </button>
+                    </div>
+                    <div class="signature-preview">
+                        <p>Semnătura va fi plasată discret în colțul din dreapta jos</p>
+                    </div>
+                </div>
+
+                <button class="continue-btn final-btn" id="step8-continue">
+                    PORTRET COMPLET!
+                    <i class="fas fa-crown"></i>
+                </button>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">ArtPortret</div>
+                <div class="footer-tagline">Explorează arta portretului</div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-credits">
+                Made by <strong>Siret Luca-Alexandru</strong> and <strong>Zevri Matei-Tudor</strong>
+            </div>
+            
+            <div class="footer-social">
+                <a href="https://github.com/Atomify66/Artportret" class="github-link" target="_blank">
+                    <i class="fab fa-github github-icon"></i>
+                    GitHub Repository
+                </a>
+            </div>
+            
+            <div class="copyright">
+                © 2025 ArtPortret • Toate drepturile rezervate
+            </div>
+        </div>
+    </footer>
+
+    <script src="navbar.js?v=1.1"></script>
+    <script src="script.js?v=2.9"></script>
+    <script src="animations/nose_functions.js?v=1.1"></script>
+    <script src="animations/mouth_functions.js"></script>
+    <script src="animations/ear_functions.js"></script>
+    <script src="animations/hair_functions.js"></script>
+    <script src="animations/finishing_functions.js"></script>
+</body>
+</html>
